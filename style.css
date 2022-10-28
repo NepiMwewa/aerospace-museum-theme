@@ -1,0 +1,80 @@
+/*
+Theme Name: Aerospace Museum Theme
+Author: Alexander Harmon
+Author URI: https://alexanderharmon.dev/
+Description: A WordPress theme using Bootstrap for Boron Aerospace Museum.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: wpbootstrap
+*/
+:root{
+  --mainBackground: #1F2421;
+  --mainColor: #FFFFFF;
+  --mainAltColor: #FFD447;
+  --linkColorAlt: #E07B39;
+  --tagColor: #7fadb9;
+
+  --navBackground: rgba(180, 184, 197, 0.25);
+  --footerBackground: rgba(0, 0, 0, 0.25);
+  --shadowValue: (0px 4px 4px rgba(0, 0, 0, 0.25));
+
+  --cardBackground: #7E765D;
+  --boarderColor: #E8E9F3;
+
+  --dropShadow: drop-shadow( 2px 2px 4px #252427cc );
+
+  --scrollBackground: #36343a;
+  --scrollHover: #423e46;
+}
+
+body{
+  background-color: var(--mainBackground);
+  color: var(--mainColor);
+  margin: 0px;
+  margin-left: 12.1rem;
+  font-family:'Open Sans', sans-serif;
+}
+
+hr{
+  border-color: var(--hrColor) !important;
+  border-style: solid;
+}
+a{
+  color:var(--linkColorAlt);
+}
+
+  /* 
+  *  Footer Styles
+  */
+.footer-content{
+  border-width: 2px 0px 0px 0px;
+  border-color: var(--hrColor) !important;
+  border-style: solid;
+  margin-top: 4rem;
+  padding: 2rem;
+}
+.footer-content ul,
+.footer-content li{
+  list-style: none;
+}
+
+.footer-content p{
+  font-size: 0.8rem;
+}
+
+/*
+Mobile Design
+*/
+@media screen and (max-width: 1280px) {
+
+}
+@media screen and (max-width: 1080px) {
+
+}
+@media screen and (max-width: 880px) {
+
+}
+@media screen and (max-width: 781px) {
+
+}
