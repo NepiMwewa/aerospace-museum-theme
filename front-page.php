@@ -2,7 +2,7 @@
   get_header();
 ?>
 
-  <div class="front-page-content">
+  <div class="page-content">
   
     <?php if(have_posts()) :
       while (have_posts()) :the_post();
@@ -20,6 +20,7 @@
 
       endif;
     ?>
+    </div>
 
 <?php
   get_footer();

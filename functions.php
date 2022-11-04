@@ -6,6 +6,7 @@ add_theme_support('widgets');
 //functions
 function aerospace_museum_styles() {
   wp_enqueue_style('style', get_stylesheet_uri());
+  wp_enqueue_script( 'stickyNav', get_template_directory_uri() . '/js/stickyNav.js', array(), '1.0.0', true );
 }
 add_action('wp_enqueue_scripts', 'aerospace_museum_styles');
 
@@ -31,16 +32,8 @@ add_action( 'after_setup_theme', 'mytheme_post_thumbnails' );
 
 // nav functions
 register_nav_menus(array(
-  'primary' => __('Primary Menu'),
+  'primary' => __('Header Menu'),
   'footer' => __('Footer Menu'),
+  'privacy' => __('Privacy Menu'),
 ));
 
-
-//add custom post to display with standard query
-function add_custom_pt( $query ) {
-  if ( $query->is_home() && $query->is_main_query() || $query->is_category()
-    || $query->is_author() || $query->is_date() )  {
-    $query->set( 'post_type', array( 'post', 'photo-showcase' ) );
-  }
-}
-add_action( 'pre_get_posts', 'add_custom_pt' );

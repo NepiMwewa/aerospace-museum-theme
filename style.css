@@ -2,79 +2,325 @@
 Theme Name: Aerospace Museum Theme
 Author: Alexander Harmon
 Author URI: https://alexanderharmon.dev/
-Description: A WordPress theme using Bootstrap for Boron Aerospace Museum.
+Description: A WordPress theme for Boron Aerospace Museum.
 Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: wpbootstrap
 */
 :root{
-  --mainBackground: #1F2421;
+  /*
+   * Colors
+  */
+  --mainBackground: #80391E;
   --mainColor: #FFFFFF;
-  --mainAltColor: #FFD447;
+  --mainAltColor: #44BCD8;
   --linkColorAlt: #E07B39;
-  --tagColor: #7fadb9;
+  --tagColor: #44BCD8;
 
-  --navBackground: rgba(180, 184, 197, 0.25);
-  --footerBackground: rgba(0, 0, 0, 0.25);
-  --shadowValue: (0px 4px 4px rgba(0, 0, 0, 0.25));
+  --navBackground: rgba(180, 184, 197, 0.25);;
+  --footerBackground: rgba(25, 94, 131, 0.25);
 
-  --cardBackground: #7E765D;
+  --cardBackground: rgba(224, 123, 57, 0.5);
   --boarderColor: #E8E9F3;
 
-  --dropShadow: drop-shadow( 2px 2px 4px #252427cc );
+  --boxShadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   --scrollBackground: #36343a;
   --scrollHover: #423e46;
+
+  /*
+   * Fonts
+  */
+  --fontHeading: 'iceland';
+  --fontText: 'krub';
+  --fontWritten: 'kirang-haerang';
+
+  --h1Size: 6rem;
+  --h2Size: 3rem;
+  --h4Size: 2.5rem;
+  --textSize: 1.3rem;
+  --navLinkSize: 2rem;
+  --footerBigLinkSize: 1.5rem;
+  --footerSmallLinkSize: 1rem;
+  --footerCopyrightSize: 0.8rem;
+
+
+  /*
+   * Margins & Padding
+  */
+  /* page */
+  --pagewidth: 1440px;
+  --pageMargin: auto;
+
+  /* card */
+  --cardPadding: 10px;
 }
+
+@font-face {
+  font-family: iceland;
+  src: url(fonts/Iceland-Regular.ttf);
+}
+@font-face {
+  font-family: krub;
+  src: url(fonts/Krub-Regular.ttf);
+}
+@font-face {
+  font-family: kirang-haerang;
+  src: url(fonts/KirangHaerang-Regular.ttf);
+}
+
 
 body{
   background-color: var(--mainBackground);
   color: var(--mainColor);
   margin: 0px;
-  margin-left: 12.1rem;
-  font-family:'Open Sans', sans-serif;
+  margin-top: 10vh;
+  font-family: var(--fontText), 'Open Sans', sans-serif;
 }
-
+h1{
+  font-family: var(--fontHeading);
+  font-size: var(--h1Size);
+} 
+h2{
+  font-family: var(--fontHeading);
+  font-size: var(--h2Size);
+}
+h4{
+  font-family: var(--fontHeading);
+  font-size: var(--h4Size);
+  margin: 0px;
+  margin-bottom: 2rem;
+}
 hr{
   border-color: var(--hrColor) !important;
   border-style: solid;
 }
 a{
-  color:var(--linkColorAlt);
+  color:var(--mainColor);
+}
+a:hover{
+  color:var(--mainAltColor);
+}
+.written-font{
+  font-family: var(--fontWritten);
+}
+p{
+  font-size: var(--textSize);
+  line-height: 1.5;
+  
+}
+li{
+  font-size: var(--textSize);
+}
+  /* 
+  *  Header Styles
+  */
+.sticky{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+.header-content{
+  background-color: var(--navBackground);
+  box-shadow: var(--boxShadow);
+  backdrop-filter: blur(3px);
+  height: 64px;
+}
+.header-menu-container{
+  height: 100%;
+}
+#header-menu{
+  margin: auto var(--pageMargin);
+  padding: 0px;
+  list-style: none;
+  height: 100%;
+  width: var(--pagewidth);
+
+  display: flex;
+  align-items:  center;
+}
+#header-menu a{
+  font-family: var(--fontHeading);
+  font-size: var(--navLinkSize);
+  letter-spacing: 0.04em;
+
+  color: var(--mainColor);
+  text-decoration: none;
+  margin-right: 15px;
+}
+#header-menu a:hover{
+  text-decoration: underline;
+  text-decoration-color: var(--mainAltColor);
+}
+  
+  /* 
+  *  Page Styles
+  */
+.page-content{
+  margin: auto var(--pageMargin);
+  padding: 0px;
+  width: var(--pagewidth);
+}
+.remove-margins{
+  margin: 0px;
+}
+
+
+/* Card */
+
+.card{
+  background-color: var(--cardBackground);
+  border-radius: 10px;
+  box-shadow: var(--boxShadow);
+  padding: var(--cardPadding);
+
+  display: flex;
+  flex-direction: column;
+}
+.card figure{
+  text-align: center;
+}
+.card img{
+  width: 50%;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 25px;
+}
+.card .learn-more{
+  margin-top: auto;
 }
 
   /* 
   *  Footer Styles
   */
+
 .footer-content{
-  border-width: 2px 0px 0px 0px;
-  border-color: var(--hrColor) !important;
-  border-style: solid;
-  margin-top: 4rem;
-  padding: 2rem;
+  background-color: var(--footerBackground);
+  margin: 0px;
+  padding: 0px;
+  margin-top: 200px;
+  
 }
 .footer-content ul,
 .footer-content li{
   list-style: none;
+  padding: 0px;
 }
 
-.footer-content p{
-  font-size: 0.8rem;
+
+.footer-menu-container{
+  width: var(--pagewidth);
+  margin: auto var(--pageMargin);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+}
+#footer-menu{
+  display: flex;
+  justify-content: space-between;
+}
+#footer-menu a{
+  text-decoration: none;
+  font-size: var(--footerBigLinkSize);
+}
+#footer-menu li ul{
+  padding-left: 0px;
+}
+#footer-menu > li > ul{
+  margin-top: 8px;
+}
+#footer-menu li li a{
+  font-size: var(--footerSmallLinkSize);
+}
+
+/* footer copyright section */
+.footer-copyright{
+  width: var(--pagewidth);
+  margin: auto var(--pageMargin);
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-width: 2px 0px 0px 0px;
+  border-color: var(--hrColor) !important;
+  border-style: solid;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.footer-copyright p{
+  margin: 0px;
+  font-size: var(--footerCopyrightSize);
+}
+.privacy-menu-container{
+  width: 40%;
+}
+.privacy-menu-container nav{
+  height: 100%;
+}
+
+#privacy-menu{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  padding: 0px;
+  margin: 0px;
+}
+.footer-copyright a{
+  font-size: var(--footerCopyrightSize);
 }
 
 /*
 Mobile Design
 */
-@media screen and (max-width: 1280px) {
-
+@media screen and (max-width: 1580px) {
+  :root{
+    --pagewidth: 1280px;
+  }
 }
-@media screen and (max-width: 1080px) {
-
+@media screen and (max-width: 1440px) {
+  :root{
+    --pagewidth: 1080px;
+  }
+}
+@media screen and (max-width: 1180px) {
+  :root{
+    --pagewidth: 960px;
+  }
+  .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{
+    flex-basis: 50% !important;
+  }
+}
+@media screen and (max-width: 1000px) {
+  :root{
+    --pagewidth: 800px;
+  }
+  .reverse-column{
+    -webkit-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+  .wp-block-columns:not(.is-not-stacked-on-mobile){
+    flex-wrap: wrap!important;
+  }
+  .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{
+    flex-basis: 100%!important;
+  }
+  .card-container{
+    max-width: 600px;
+    margin: auto;
+  }
 }
 @media screen and (max-width: 880px) {
-
+  :root{
+    --pagewidth: 750px;
+  }
 }
 @media screen and (max-width: 781px) {
-
+  :root{
+    --pagewidth: auto;
+    --pageMargin: 5px 0px;
+    --cardPadding: 8px;
+  }
 }

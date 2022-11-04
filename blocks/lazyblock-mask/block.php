@@ -1,21 +1,18 @@
-<?php
-function debug($data) {
-    $output = $data;
-    if (is_array($output))
-        $output = implode(',', $output);
-
-    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-}
-?>
-
-
 <?php if ( isset( $attributes['image']) && isset( $attributes['mask']) ) : ?>
     <style>
-        .masked-image{
+        .masked-image-<?php echo $attributes['mask']['title']; ?>{
             -webkit-mask-image: url(<?php echo esc_url( $attributes['mask']['url'] ); ?>);
             mask-image: url(<?php echo esc_url( $attributes['mask']['url'] ); ?>);
             filter: blur(<?php echo $attributes['image-blur']; ?>px);
-            
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: <?php echo $attributes['mask-x-position']?>% <?php echo $attributes['mask-y-position']?>%;
+            mask-position: <?php echo $attributes['mask-x-position']?>% <?php echo $attributes['mask-y-position']?>%;
+            width: 100%;
+            height: 100%;
+                  
         }
         figure{
             filter: 
@@ -30,7 +27,7 @@ function debug($data) {
         }
     </style>
     <figure>
-        <img class="masked-image" src="<?php echo esc_url( $attributes['image']['url'] ); ?>" alt="<?php echo esc_attr( $attributes['image']['alt'] ); ?>">
+        <img class="masked-image-<?php echo $attributes['mask']['title']; ?>" src="<?php echo esc_url( $attributes['image']['url'] ); ?>" alt="<?php echo esc_attr( $attributes['image']['alt'] ); ?>">
         <figcaption> <?php echo $attributes['image']['caption']; ?> </figcaption>
     </figure>
 <?php else: ?>
