@@ -17,7 +17,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   --linkColorAlt: #E07B39;
   --tagColor: #44BCD8;
 
-  --navBackground: rgba(180, 184, 197, 0.25);;
+  --navBackground: rgba(180, 184, 197, 0.25);
+  --navPopupBackground: rgba(0,0,0, 0.5);
   --footerBackground: rgba(25, 94, 131, 0.25);
 
   --cardBackground: rgba(224, 123, 57, 0.5);
@@ -37,8 +38,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
   --h1Size: 6rem;
   --h2Size: 3rem;
-  --h4Size: 2.5rem;
+  --h3Size: 2rem;
+  --h4Size: 2rem;
   --textSize: 1.3rem;
+  --hoursTextSize: 1.3rem;
   --navLinkSize: 2rem;
   --footerBigLinkSize: 1.5rem;
   --footerSmallLinkSize: 1rem;
@@ -85,6 +88,10 @@ h2{
   font-family: var(--fontHeading);
   font-size: var(--h2Size);
 }
+h3{
+  font-family: var(--fontHeading);
+  font-size: var(--h3Size);
+}
 h4{
   font-family: var(--fontHeading);
   font-size: var(--h4Size);
@@ -103,6 +110,11 @@ a:hover{
 }
 .written-font{
   font-family: var(--fontWritten);
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
 }
 p{
   font-size: var(--textSize);
@@ -112,6 +124,7 @@ p{
 li{
   font-size: var(--textSize);
 }
+
   /* 
   *  Header Styles
   */
@@ -121,6 +134,47 @@ li{
   width: 100%;
   z-index: 2;
 }
+
+.menu-view{
+  display: block !important;
+  position: fixed;
+  top: 0;
+  background-color: var(--navPopupBackground);
+  backdrop-filter: blur(6px);
+  width: 100%;
+  height: 150%;
+}
+.menu-view #header-menu{
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+.menu-view #header-menu li{
+  margin: 1rem;
+}
+.menu-view #header-menu a{
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000,
+     0px 2px 3px white;
+}
+
+
+#hamburger-menu{
+  display: none;
+  height: 64px;
+  width: 64px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 3;
+}
+
+
 .header-content{
   background-color: var(--navBackground);
   box-shadow: var(--boxShadow);
@@ -165,7 +219,9 @@ li{
 .remove-margins{
   margin: 0px;
 }
-
+.hours-container p{
+  font-size: var(--hoursTextSize);
+}
 
 /* Card */
 
@@ -268,6 +324,9 @@ li{
   padding: 0px;
   margin: 0px;
 }
+#privacy-menu li{
+  display: flex;
+}
 .footer-copyright a{
   font-size: var(--footerCopyrightSize);
 }
@@ -315,6 +374,16 @@ Mobile Design
 @media screen and (max-width: 880px) {
   :root{
     --pagewidth: 750px;
+    --navLinkSize: 3rem;
+  }
+  #hamburger-menu{
+    display: block;
+  }
+  .header-menu-container{
+    display: none;
+  }
+  .header-content{
+    height: 0%;
   }
 }
 @media screen and (max-width: 781px) {
@@ -322,5 +391,48 @@ Mobile Design
     --pagewidth: auto;
     --pageMargin: 5px 0px;
     --cardPadding: 8px;
+  }
+
+  #footer-menu{
+    flex-wrap: wrap;
+  }
+  #footer-menu > li{
+    flex-basis: 50%;
+    margin: 2rem 0px;
+  }
+  .footer-copyright{
+    flex-wrap: wrap!important;
+  }
+  .footer-copyright > div{
+    flex-basis: 100%!important;
+    text-align: center;
+    margin: 8px;
+  }
+  
+}
+@media screen and (max-width: 410px) {
+  :root{
+    --h1Size: 5rem;
+  }
+}
+@media screen and (max-width: 350px) {
+  :root{
+    --h1Size: 4rem;
+    --hoursTextSize: 1rem;
+  }
+  #footer-menu{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #footer-menu > li{
+    flex-basis: 100%;
+    margin: 2rem 0px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 283px) {
+  :root{
+    --h1Size: 3.7rem;
+    --hoursTextSize: 0.9rem;
   }
 }

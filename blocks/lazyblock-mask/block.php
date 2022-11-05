@@ -15,12 +15,17 @@
                   
         }
         figure{
-            filter: 
+            filter:
+                drop-shadow(-1px -1px 0px #fff)  
+                drop-shadow(1px -1px 0px #fff)
+                drop-shadow(-1px 1px 0px #fff)
+                drop-shadow(1px 1px 0px #fff)
                 drop-shadow(
                     <?php echo $attributes['drop-shadow-x-offset']; ?>px
                     <?php echo $attributes['drop-shadow-y-offset']; ?>px 
                     <?php echo $attributes['drop-shadow-blur']; ?>px
-                    <?php echo $attributes['drop-shadow-color']; ?>);
+                    <?php echo $attributes['drop-shadow-color']; ?>)
+                    ;
         }
         figcaption{
             display: none;
