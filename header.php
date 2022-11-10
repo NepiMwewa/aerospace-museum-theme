@@ -11,7 +11,7 @@
     <?php wp_head(); ?>
   </head>
 <body <?php body_class(); ?>>
-
+  <div class="blur-background"></div>
   <header id="header-id" class="header-content sticky">
     <?php
       wp_nav_menu( array(
@@ -21,7 +21,7 @@
         'container' 	 	=> 'nav',
         'container_id'  => 'menu-nav',
         'container_class'	=> 'header-menu-container',
-        'depth'				=> 1,
+        'depth'				=> 2,
         'fallback_cb' 		=> false
       ) );
     ?>
