@@ -14,7 +14,7 @@
             height: 100%;
                   
         }
-        figure{
+        .masked-figure-<?php echo $attributes['mask']['title']; ?>{
             filter:
                 drop-shadow(-1px -1px 0px #fff)  
                 drop-shadow(1px -1px 0px #fff)
@@ -31,7 +31,7 @@
             display: none;
         }
     </style>
-    <figure>
+    <figure class="masked-figure-<?php echo $attributes['mask']['title']; ?>">
         <img class="masked-image-<?php echo $attributes['mask']['title']; ?>" src="<?php echo esc_url( $attributes['image']['url'] ); ?>" alt="<?php echo esc_attr( $attributes['image']['alt'] ); ?>">
         <figcaption> <?php echo $attributes['image']['caption']; ?> </figcaption>
     </figure>

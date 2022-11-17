@@ -10,9 +10,10 @@ function aerospace_museum_styles() {
 }
 add_action('wp_enqueue_scripts', 'aerospace_museum_styles');
 
-function index_page_excerpt_length(){
-  return 35;
+function wpdocs_custom_excerpt_length( $length ) {
+	return 55;
 }
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
 function nd_dosth_theme_setup() {
 

@@ -15,61 +15,52 @@
 
 /** Loads the WordPress Environment and Template */
 require('./wp-blog-header.php');
+
 get_header();?>
-<div class="blog-content post-content">
+<div class="index-content page-content">
   <?php global $wp_query;
-  if(have_posts()) :
-    while (have_posts())
-      :the_post();
+  if(have_posts()){
+    while (have_posts()){
+      the_post();
       if(0 === $wp_query->current_post %2){?>
-      <article class="post-container">
-        <section class="img-section">
-          <?php if(has_post_thumbnail() ):?>
-            <div class="thumbnail">
-              <?php echo get_the_post_thumbnail();?>
-            </div>
-          <?php endif;?>
-        </section>
-
-        <section class="text-section text-right">
-
-          <h2><?php the_title();?></h2>
-
-          <?php the_excerpt();?>
-          <div class="author-link">
-            <?php the_author_posts_link(); ?>
-          </div>
-          <div class="post-time">
-            <?php the_time('F jS, Y'); ?>
-          </div>
-          <div class="read-more-button read-more-right">
-            <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to
-              <?php the_title_attribute(); ?>">
-                Continue Reading</a>
-            </div>
+        <article class="post-container">
+          <section class="img-section">
+            <?php if(has_post_thumbnail() ):?>
+              <div class="thumbnail">
+                <?php echo get_the_post_thumbnail();?>
+              </div>
+            <?php endif;?>
           </section>
 
+          <section class="text-section text-right">
 
-        <div class="float-clear"></div>
-      </article>
-      <br>
-      <hr>
+          <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to
+                <?php the_title_attribute(); ?>"><h2><?php the_title();?></h2></a>
+            <hr>
+            <?php the_excerpt();?>
+            <div class="read-more-button read-more-right">
+              <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to
+                <?php the_title_attribute(); ?>">
+                  Continue Reading</a>
+              </div>
+            </section>
 
-      <?php continue;
+
+          <div class="float-clear"></div>
+        </article>
+        <br>
+
+        <?php continue;
       }
+
       ?>
       <article class="post-container">
 
         <section class="text-section text-left">
 
           <h2><?php the_title();?></h2>
+          <hr>
           <?php the_excerpt();?>
-          <div class="author-link">
-            <?php the_author_posts_link(); ?>
-          </div>
-          <div class="post-time">
-            <?php the_time('F jS, Y'); ?>
-          </div>
           <div class="read-more-button read-more-left">
             <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to
               <?php the_title_attribute(); ?>">
@@ -88,14 +79,13 @@ get_header();?>
         <div class="float-clear"></div>
       </article>
       <br>
-      <hr>
     <?php
-    endwhile;
-
-    else:
+    }
+    }
+    else{
       echo '<p>No content found</p>';
 
-    endif;?>
+    };?>
 </div>
 
 <?php get_footer();
