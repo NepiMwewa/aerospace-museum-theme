@@ -437,6 +437,22 @@ li{
   display: block;
 }
 
+  /*
+  *   Single Page
+  */
+
+  .single-post .img-section{
+    margin: auto;
+    width: 75%;
+  }
+  .single-post .img-section img{
+    width: 100%;
+    height: 100%;
+    box-shadow: var(--boxShadow) !important;
+    border: 1px solid var(--boarderColor);
+  }
+  
+
 
   /* 
   *  Footer Styles
@@ -605,6 +621,11 @@ Responsive Design
   .index-content .post{
     max-width: none;
     width: auto;
+  }
+
+  .single-post .img-section{
+    margin: auto;
+    width: 100%;
   }
 }
 @media screen and (max-width: 781px) {
