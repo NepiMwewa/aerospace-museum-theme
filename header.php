@@ -10,18 +10,32 @@
 <body <?php body_class(); ?>>
   <div class="blur-background"></div>
   <header id="header-id" class="header-content sticky">
-    <?php
-      wp_nav_menu( array(
-        'theme_location' 	=> 'header',
-        'menu_id' 		 	=> 'header-menu',
-        'menu_class' 		=> '',
-        'container' 	 	=> 'nav',
-        'container_id'  => 'menu-nav',
-        'container_class'	=> 'header-menu-container',
-        'depth'				=> 2,
-        'fallback_cb' 		=> false
-      ) );
-    ?>
+    <div class="nav-containers" id="nav-containers-id">
+      <?php
+        wp_nav_menu( array(
+          'theme_location' 	=> 'primary',
+          'menu_id' 		 	=> 'header-menu',
+          'menu_class' 		=> '',
+          'container' 	 	=> 'nav',
+          'container_id'  => 'menu-nav',
+          'container_class'	=> 'header-menu-container',
+          'depth'				=> 2,
+          'fallback_cb' 		=> false
+        ) );
+      ?>
+      <?php
+        wp_nav_menu( array(
+          'theme_location' 	=> 'shop',
+          'menu_id' 		 	=> 'shop-menu',
+          'menu_class' 		=> '',
+          'container' 	 	=> 'nav',
+          'container_id'  => 'shop-menu-nav',
+          'container_class'	=> 'shop-menu-container',
+          'depth'				=> 2,
+          'fallback_cb' 		=> false
+        ) );
+      ?>
+    </div>
     <div id="hamburger-menu">
       <a href="javascript:void(0);" onclick="toggleMenu()">
           <svg fill="none" stroke="currentColor" 

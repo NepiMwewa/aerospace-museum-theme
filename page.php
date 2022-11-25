@@ -27,7 +27,7 @@
             'child_of' => get_the_ID()
           );
           $children = get_pages($childArgs);
-          if(count($children) > 1){
+          if(count($children) > 1 && has_post_parent()){
             ?> 
             <nav class="upper-sub-menu"><ul> <?php
               

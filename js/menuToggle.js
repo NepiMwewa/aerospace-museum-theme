@@ -14,24 +14,3 @@ function toggleMenu(){
     menuToggle = false;
   }
 }
-
-//Grabs an HTML element and sets the first class as classToAdd
-function setElementAsFirstChild(domElement, classToAdd){
-  //split the classNames in domElement
-  let classList = domElement.className.split(' ');
-  let outputString = "";
-
-  //add the classToAdd as the first element
-  classList.unshift(classToAdd ? classToAdd: "");
-
-  //iterates through the classList and combines the class name strings
-  //to output to the domElement.classList 
-  classList.forEach((item, index, arr) => {
-    if(!arr[index + 1]){
-      outputString += item;
-      return;
-    }
-    outputString += item + ' ';
-  });
-  domElement.classList = outputString;
-}
