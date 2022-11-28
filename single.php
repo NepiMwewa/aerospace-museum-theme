@@ -20,7 +20,7 @@
           <?php
           } ?>
     <article class="post-container">
-
+        
       <section class="img-section">
         <?php if(has_post_thumbnail() ):?>
           <div class="single-thumbnail">
