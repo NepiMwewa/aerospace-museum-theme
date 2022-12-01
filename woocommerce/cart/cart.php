@@ -78,10 +78,14 @@ do_action( 'woocommerce_before_cart' ); ?>
 						<?php
 						if ( ! $product_permalink ) {
 							echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;' );
-							echo wp_kses_post( apply_filters( 'woocommerce_cart_item_description', $_product->post->post_excerpt, $cart_item, $cart_item_key ) . '&nbsp;' );
 						} else {
 							echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key ) );
 						}
+						?>
+							<p class="woocommerce_cart_item_description">
+								<?php echo wp_kses_post( apply_filters( 'woocommerce_cart_item_description', $_product->short_description, $cart_item, $cart_item_key ) ); ?>
+							</p>
+						<?php
 
 						do_action( 'woocommerce_after_cart_item_name', $cart_item, $cart_item_key );
 
