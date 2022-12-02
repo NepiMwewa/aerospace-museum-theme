@@ -1,8 +1,5 @@
 <?php
 
-//Theme Options
-add_theme_support('widgets');
-
 //functions
 function aerospace_museum_styles() {
   wp_enqueue_style('style', get_stylesheet_uri());
@@ -49,4 +46,3 @@ add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
 add_theme_support( 'wc-product-gallery-zoom' );
 add_theme_support( 'wc-product-gallery-lightbox' );
 add_theme_support( 'wc-product-gallery-slider' );
-

@@ -22,7 +22,6 @@ $order = wc_get_order( $order_id ); // phpcs:ignore WordPress.WP.GlobalVariables
 if ( ! $order ) {
 	return;
 }
-
 $order_items           = $order->get_items( apply_filters( 'woocommerce_purchase_order_item_types', 'line_item' ) );
 $show_purchase_note    = $order->has_status( apply_filters( 'woocommerce_purchase_note_order_statuses', array( 'completed', 'processing' ) ) );
 $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_current_user_id();
@@ -59,7 +58,6 @@ if ( $show_downloads ) {
 
 			foreach ( $order_items as $item_id => $item ) {
 				$product = $item->get_product();
-
 				wc_get_template(
 					'order/order-details-item.php',
 					array(
