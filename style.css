@@ -32,6 +32,15 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   --woocommerceBadColor: #FA0000;
   --removeColor: #FF5C5C;
 
+  /* order status colors */
+  --woocommercePending: var(--woocommerceMessageBackground);
+  --woocommerceOnHold: var(--mainAltColor);
+  --woocommerceFailed: var(--removeColor);
+  --woocommerceProcessing: var(--tagColor);
+  --woocommerceCompleted: var(--woocommerceGoodBorder);
+  --woocommerceStatusColor: var(--darkColor);
+
+
   --cardBackground: #b05a2c;
   --boarderColor: #E8E9F3;
 
@@ -1179,11 +1188,43 @@ div.wpforms-container-full .wpforms-form .wpforms-required-label{
   filter: brightness(100%);
 }
 /* order details */
-mark{
-  background-color: var(--mainAltColor);
-  color: var(--darkColor);
+mark.order-status{
   text-decoration: underline;
-  padding: 0px 4px;
+  padding: 2px 8px;
+  border-radius: var(--buttonRadius);
+}
+mark.pending-payment,
+mark.canceled,
+mark.refunded{
+  background-color: var(--woocommercePending);
+  color: var(--woocommerceStatusColor);
+}
+mark.on-hold{
+  background-color: var(--woocommerceOnHold);
+  color: var(--woocommerceStatusColor);
+}
+mark.failed{
+  background-color: var(--woocommerceFailed);
+  color: var(--woocommerceStatusColor);
+}
+mark.processing{
+  background-color: var(--woocommerceProcessing);
+  color: var(--woocommerceStatusColor);
+}
+mark.completed{
+  background-color: var(--woocommerceCompleted);
+  color: var(--woocommerceStatusColor);
+}
+.woocommerce-account ol.commentlist.notes{
+  background-color: var(--mainBackgroundDarker);
+
+}
+.woocommerce-account ol.commentlist.notes li.note p.meta{
+
+}
+
+.woocommerce-account .woocommerce-MyAccount-content .order-details-ul{
+  list-style: none;
 }
 .woocommerce td.product-name .wc-item-meta li{
   display: flex;

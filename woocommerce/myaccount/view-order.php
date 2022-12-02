@@ -21,20 +21,49 @@ defined( 'ABSPATH' ) || exit;
 
 $notes = $order->get_customer_order_notes();
 ?>
-<p>
+<h2>
 <?php
 printf(
-	/* translators: 1: order number 2: order date 3: order status */
-	esc_html__( 'Order #%1$s was placed on %2$s and is currently %3$s.', 'woocommerce' ),
-	'<mark class="order-number">' . $order->get_order_number() . '</mark>', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	'<mark class="order-date">' . wc_format_datetime( $order->get_date_created() ) . '</mark>', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	'<mark class="order-status">' . wc_get_order_status_name( $order->get_status() ) . '</mark>' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	/* translators: 1: order number */
+	esc_html__( 'Details for Order #%1$s', 'woocommerce' ),
+	$order->get_order_number(), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 );
 ?>
-</p>
+</h2>
+<ul class="order-details-ul">
+	<li>
+		<?php
+			printf(
+				/* translators: 1: order number */
+				esc_html__( 'Order number: #%1$s', 'woocommerce' ),
+				$order->get_order_number(), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			);
+		?>
+	</li>
+	<li>
+		<?php
+			printf(
+				/* translators: 1: order date */
+				esc_html__( 'Order placed: %1$s', 'woocommerce' ),
+				wc_format_datetime( $order->get_date_created() ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			);
+		?>
+	</li>
+	<li>
+		<?php
+			$orderStatus = wc_get_order_status_name( $order->get_status() );
+			
+			printf(
+				/* translators: 1: order status */
+				esc_html__( 'Order status: %1$s', 'woocommerce' ),
+				'<mark class="order-status ' . str_replace(" ", "-", strtolower($orderStatus)) .'">' . $orderStatus . '</mark>' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			);
+		?>
+	</li>
+</ul>
 
 <?php if ( $notes ) : ?>
-	<h2><?php esc_html_e( 'Order updates', 'woocommerce' ); ?></h2>
+	<h3><?php esc_html_e( 'Order updates', 'woocommerce' ); ?></h3>
 	<ol class="woocommerce-OrderUpdates commentlist notes">
 		<?php foreach ( $notes as $note ) : ?>
 		<li class="woocommerce-OrderUpdate comment note">
