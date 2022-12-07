@@ -1,4 +1,4 @@
-var menuToggle = false;
+var menuToggle = false, shopToggle = false;
  
 //toggle menu open or closed
 function toggleMenu(){
@@ -12,5 +12,16 @@ function toggleMenu(){
     menuDiv.classList.remove("menu-view");
     headerID.classList.add("header-content");
     menuToggle = false;
+  }
+}
+
+function toggleCart(){
+  let shoppingID = document.getElementsByClassName("widget_shopping_cart_content")[0];
+  if(!shopToggle){
+    shoppingID.classList.add("shopping-cart-open");
+    shopToggle = true;
+  }else{
+    shoppingID.classList.remove("shopping-cart-open");
+    shopToggle = false;
   }
 }

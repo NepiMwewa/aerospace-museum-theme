@@ -46,3 +46,12 @@ add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
 add_theme_support( 'wc-product-gallery-zoom' );
 add_theme_support( 'wc-product-gallery-lightbox' );
 add_theme_support( 'wc-product-gallery-slider' );
+
+add_action( 'woocommerce_widget_shopping_cart_before_buttons', 'minicart_count_before_content' );
+function minicart_count_before_content() {
+  $items_count = WC()->cart->get_cart_contents_count();
+  $text_label  = _n( 'Item', 'Items', $items_count, 'woocommerce' );
+  ?>
+      <p class="total item-count"><strong><?php echo $text_label; ?>:</strong> <?php echo $items_count; ?></p>
+  <?php
+}

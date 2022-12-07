@@ -23,18 +23,6 @@
           'fallback_cb' 		=> false
         ) );
       ?>
-      <?php
-        wp_nav_menu( array(
-          'theme_location' 	=> 'shop',
-          'menu_id' 		 	=> 'shop-menu',
-          'menu_class' 		=> '',
-          'container' 	 	=> 'nav',
-          'container_id'  => 'shop-menu-nav',
-          'container_class'	=> 'shop-menu-container',
-          'depth'				=> 2,
-          'fallback_cb' 		=> false
-        ) );
-      ?>
     </div>
     <div id="hamburger-menu">
       <a href="javascript:void(0);" onclick="toggleMenu()">
@@ -49,7 +37,13 @@
           </svg>
       </a>
     </div>
+    <div id="shopping-cart-menu">
+      <a href="javascript:void(0);" onclick="toggleCart()">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+      </a>
+    </div>
     
+    <nav id="shopping-cart-id">
       <div class="widget_shopping_cart_content"><?php woocommerce_mini_cart(); ?></div>
-    
+    </nav>
   </header>
