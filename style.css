@@ -734,6 +734,11 @@ div.wpforms-container-full .wpforms-form .wpforms-required-label{
   margin-left: 8px;
 }
 /* woocommerce Header/Navigation */
+.woocommerce-page nav#shopping-cart-id{
+  width: 560px;
+  margin-left: auto;
+  margin-right: 50px;
+}
 .woocommerce-page div.shopping-cart-open{
   display: block;
 }
@@ -745,8 +750,7 @@ div.wpforms-container-full .wpforms-form .wpforms-required-label{
   display: none;
   width: 400px;
   max-height: 80vh;
-  margin-left: auto;
-  margin-right: 30px;
+
   padding: 0px 80px;
   padding-top: 20px;
   background-color: var(--cardBackground);
@@ -1584,6 +1588,10 @@ Responsive Design
   .single-post .img-section{
     margin: auto;
     width: 100%;
+  }
+  .woocommerce-page nav#shopping-cart-id{
+    width: auto;
+    margin: auto;
   }
   .woocommerce .widget_shopping_cart_content{
     width: auto;
