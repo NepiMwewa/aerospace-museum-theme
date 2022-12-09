@@ -25,3 +25,15 @@ function toggleCart(){
     shopToggle = false;
   }
 }
+
+window.onload = init;
+
+// onload function
+function init() {
+  let isGiftShop = document.getElementsByClassName("woocommerce-page");
+  let isCheckOut = document.getElementsByClassName("woocommerce-checkout");
+  if(isGiftShop.length > 0 && isCheckOut.length == 0){
+    let shoppingMenuID = document.getElementById("shopping-cart-menu");
+    shoppingMenuID.classList.add("enable-Menu");
+  }
+}

@@ -212,12 +212,26 @@ li{
   z-index: 11;
 }
 #shopping-cart-menu{
+  width: var(--pageWidth);
+  margin: auto;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  height: 0px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: flex-end;
+}
+#shopping-cart-menu a{
+  display: none;
   height: 48px;
   width: 48px;
-  position: fixed;
+  position: relative;
   top: 8px;
-  right: 8px;
   z-index: 11;
+}
+#shopping-cart-menu.enable-Menu  a{
+  display: block;
 }
 
 
@@ -720,14 +734,14 @@ div.wpforms-container-full .wpforms-form .wpforms-required-label{
   margin-left: 8px;
 }
 /* woocommerce Header/Navigation */
-.woocommerce div.shopping-cart-open{
+.woocommerce-page div.shopping-cart-open{
   display: block;
 }
 #wpadminbar{
   top: auto;
   bottom: 0;
 }
-.woocommerce .widget_shopping_cart_content{
+.woocommerce-page .widget_shopping_cart_content{
   display: none;
   width: 400px;
   max-height: 80vh;
@@ -748,24 +762,27 @@ div.wpforms-container-full .wpforms-form .wpforms-required-label{
 {
   display: none;
 }
-.woocommerce .widget_shopping_cart_content ul.cart_list li img{
+.woocommerce-page .widget_shopping_cart_content ul.cart_list li img{
   width: 64px;
 }
-.woocommerce .widget_shopping_cart_content .woocommerce-mini-cart__buttons a:last-child{
+.woocommerce-page .widget_shopping_cart_content ul.cart_list{
+  border-bottom: solid 1px var(--tableBorderColor);
+  padding-bottom: 10px;
+}
+.woocommerce-page .widget_shopping_cart_content .woocommerce-mini-cart__buttons a:last-child{
   float: right;
 }
-.woocommerce .widget_shopping_cart_content a.button{
+.woocommerce-page .widget_shopping_cart_content a.button{
   background-color: var(--mainAltColor);
   color: var(--darkColor);
   
   box-shadow: var(--boxShadow);
-
 }
-.woocommerce .widget_shopping_cart_content a.button:hover{
+.woocommerce-page .widget_shopping_cart_content a.button:hover{
 filter: brightness(90%);
 }
 
-.woocommerce .widget_shopping_cart_content .woocommerce-mini-cart__empty-message{
+.woocommerce-page .widget_shopping_cart_content .woocommerce-mini-cart__empty-message{
   margin: 0px;
   padding: 20px 0px;
 }
@@ -1499,7 +1516,19 @@ Responsive Design
     display: none;
   }
   #shopping-cart-menu{
+    width: unset;
+    margin: unset;
+    position: fixed;
+    top: 0;
+    left: unset;
     right: 76px;
+    transform: unset;
+    display: unset;
+    justify-content:unset;
+    display: block;
+    height: 48px;
+    width: 48px;
+    z-index: 11;
   }
 
   .nav-containers{
