@@ -735,11 +735,31 @@ div.wpforms-container-full .wpforms-form .wpforms-required-label{
 }
 /* woocommerce Header/Navigation */
 .woocommerce-page nav#shopping-cart-id{
-  width: 560px;
-  margin-left: auto;
-  margin-right: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
-.woocommerce-page div.shopping-cart-open{
+.woocommerce-page .cart-close{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+.woocommerce-page .cart-close svg{
+  border-radius: 100px;
+  color: var(--mainColor);
+}
+.woocommerce-page .shopping-cart-open{
+  height: 100vh;
+  width: 562px;
+  background-color: var(--cardBackground);
+  border: solid 1px var(--tableBorderColor);
+  border-top-style: none;
+  box-shadow: var(--boxShadow);
+  overflow-y: auto;
+}
+.woocommerce-page .shopping-cart-open > div{
   display: block;
 }
 #wpadminbar{
@@ -748,17 +768,10 @@ div.wpforms-container-full .wpforms-form .wpforms-required-label{
 }
 .woocommerce-page .widget_shopping_cart_content{
   display: none;
-  width: 400px;
-  max-height: 80vh;
-
-  padding: 0px 80px;
-  padding-top: 20px;
-  background-color: var(--cardBackground);
-  border-radius: 0px 0px var(--productImgRadius) var(--productImgRadius);
-  border: solid 1px var(--tableBorderColor);
-  border-top-style: none;
-  box-shadow: var(--boxShadow);
-  overflow-y: auto;
+  
+  padding: 20px 80px;
+  height: auto;
+  width: auto;
 }
 .woocommerce-cart .widget_shopping_cart_content,
 .woocommerce-checkout .widget_shopping_cart_content,
@@ -1589,8 +1602,16 @@ Responsive Design
     margin: auto;
     width: 100%;
   }
+  .woocommerce-page .hamburger-move{
+    right: 16px !important;
+  }
+  .woocommerce-page .menu-move{
+    right: 92px !important;
+  }
+  .woocommerce-page .cart-close{
+    display: none;
+  }
   .woocommerce-page nav#shopping-cart-id{
-    width: auto;
     margin: auto;
   }
   .woocommerce .widget_shopping_cart_content{
@@ -1611,7 +1632,6 @@ Responsive Design
     --pageMargin: 5px 0px;
     --cardPadding: 8px;
   }
-
   #footer-menu{
     flex-wrap: wrap;
   }
@@ -1626,6 +1646,9 @@ Responsive Design
     flex-basis: 100%!important;
     text-align: center;
     margin: 8px;
+  }
+  .woocommerce ul.products li.product .onsale{
+    margin-right: 0px;
   }
   
 }
@@ -1652,6 +1675,9 @@ Responsive Design
   }
   .woocommerce-account .woocommerce-MyAccount-navigation{
     border-right-style: none;
+  }
+  .woocommerce #shopping-cart-id{
+    width: 100%;
   }
   .woocommerce .widget_shopping_cart_content{
     width: auto;

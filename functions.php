@@ -47,11 +47,15 @@ add_theme_support( 'wc-product-gallery-zoom' );
 add_theme_support( 'wc-product-gallery-lightbox' );
 add_theme_support( 'wc-product-gallery-slider' );
 
-add_action( 'woocommerce_widget_shopping_cart_before_buttons', 'minicart_count_before_content' );
-function minicart_count_before_content() {
+add_action( 'woocommerce_before_mini_cart_contents', 'minicart_display_before_content' );
+function minicart_display_before_content() {
   $items_count = WC()->cart->get_cart_contents_count();
   $text_label  = _n( 'Item', 'Items', $items_count, 'woocommerce' );
   ?>
-      <p class="total item-count"><strong><?php echo $text_label; ?>:</strong> <?php echo $items_count; ?></p>
+      <h3 class="total item-count">Your cart (<?php echo $items_count; ?> <?php echo $text_label; ?>)</h3>
+      <a class="cart-close" href="javascript:void(0);" onclick="toggleCart()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </a>
   <?php
+  
 }
