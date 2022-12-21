@@ -762,10 +762,6 @@ div.wpforms-container-full .wpforms-form .wpforms-required-label{
 .woocommerce-page .shopping-cart-open > div{
   display: block;
 }
-#wpadminbar{
-  top: auto;
-  bottom: 0;
-}
 .woocommerce-page .widget_shopping_cart_content{
   display: none;
   
@@ -993,7 +989,6 @@ filter: brightness(90%);
   height: 100%;
 }
 .woocommerce .quantity .qty{
-  
   padding: 7.888px 6px;
   text-align: left;
   font-size: 16px;
@@ -1650,7 +1645,6 @@ Responsive Design
   .woocommerce ul.products li.product .onsale{
     margin-right: 0px;
   }
-  
 }
 @media screen and (max-width: 768px) {
   .single-product .product .woocommerce-product-gallery__image > a img{
