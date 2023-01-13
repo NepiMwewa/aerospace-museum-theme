@@ -53,7 +53,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   */
   --fontHeading: 'iceland';
   --fontText: 'krub';
-  --fontWritten: 'kirang-haerang';
+  --fontWritten: 'PermanentMarker-Regular';
 
   --h1Size: 6rem;
   --h2Size: 3rem;
@@ -98,14 +98,17 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 @font-face {
   font-family: iceland;
   src: url(fonts/Iceland-Regular.ttf);
+  font-display: swap;
 }
 @font-face {
   font-family: krub;
   src: url(fonts/Krub-Regular.ttf);
+  font-display: swap;
 }
 @font-face {
-  font-family: kirang-haerang;
-  src: url(fonts/KirangHaerang-Regular.ttf);
+  font-family: PermanentMarker-Regular;
+  src: url(fonts/PermanentMarker-Regular.ttf);
+  font-display: swap;
 }
 
 
@@ -1506,6 +1509,9 @@ Responsive Design
   :root{
     --pageWidth: 800px;
     --navLinkSize: 3rem;
+    --footerBigLinkSize: 1.75rem;
+    --footerSmallLinkSize: 1.25rem;
+    --footerCopyrightSize: 1rem;
   }
   .reverse-column{
     -webkit-flex-direction: column-reverse;
@@ -1614,11 +1620,14 @@ Responsive Design
     margin: 0px 4px;
     padding-top: 40px;
   }
+  
+  #footer-menu li li{
+    margin: 5px 0px;
+  }
 }
 @media screen and (max-width: 880px) {
   :root{
     --pageWidth: 750px;
-    
   }
 }
 @media screen and (max-width: 781px) {
