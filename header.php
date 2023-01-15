@@ -11,8 +11,8 @@
   <div class="blur-background"></div>
   <header id="header-id" class="header-content sticky">
     <nav role="navigation" aria-label="Main menu" id="hamburger-menu">
-      <button aria-expanded="false" aria-controls="main-menu" href="#menu" id="menu-toggle" class="menu-toggle" onclick="toggleMenu()">
-          <svg fill="none" stroke="currentColor" 
+      <button aria-expanded="false" aria-label="Main menu toggle button" aria-controls="main-menu" href="#menu" id="menu-toggle" class="menu-toggle" onclick="toggleMenu()">
+          <svg aria-hidden="true" focusable="false" fill="none" stroke="currentColor" 
               viewBox="0 0 24 24" 
               xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" 
@@ -36,7 +36,7 @@
       ) );
     ?>
     <div id="shopping-cart-menu">
-      <button aria-expanded="false" aria-controls="shopping-cart" id="shopping-toggle" onclick="toggleCart()">
+      <button aria-expanded="false" aria-label="shopping cart toggle button" aria-controls="shopping-cart" id="shopping-toggle" onclick="toggleCart()">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
       </button>
     </div>
