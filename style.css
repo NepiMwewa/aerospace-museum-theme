@@ -772,6 +772,12 @@ div.wpforms-container-full .wpforms-form .wpforms-required-label{
   right: 0;
   margin-top: 10px;
   margin-right: 20px;
+  background-color: transparent;
+  border: none;
+}
+.woocommerce-page .cart-close:hover{
+  cursor: pointer;
+  filter: brightness(90%);
 }
 .woocommerce-page .cart-close svg{
   border-radius: 100px;
@@ -1647,6 +1653,9 @@ Responsive Design
   
   #footer-menu li li{
     margin: 5px 0px;
+  }
+  a{
+    font-size: var(--footerBigLinkSize);
   }
 }
 @media screen and (max-width: 880px) {
