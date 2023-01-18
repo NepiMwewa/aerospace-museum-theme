@@ -12,7 +12,7 @@
             mask-position: <?php echo $attributes['mask-x-position']?>% <?php echo $attributes['mask-y-position']?>%;
             width: 100%;
             height: 100%;
-                  
+            <?php if(($attributes['aspect-ratio-x-axis']) != 0 || ($attributes['aspect-ratio-y-axis']) != 0){?>aspect-ratio: <?php echo $attributes['aspect-ratio-x-axis'];?> / <?php echo $attributes['aspect-ratio-y-axis'];?>;<?php } ?>
         }
         .masked-figure-<?php echo $attributes['mask']['title']; ?>{
             filter:
@@ -24,15 +24,14 @@
                     <?php echo $attributes['drop-shadow-x-offset']; ?>px
                     <?php echo $attributes['drop-shadow-y-offset']; ?>px 
                     <?php echo $attributes['drop-shadow-blur']; ?>px
-                    <?php echo $attributes['drop-shadow-color']; ?>)
-                    ;
+                    <?php echo $attributes['drop-shadow-color']; ?>);
         }
         figcaption{
             display: none;
         }
     </style>
     <figure class="masked-figure-<?php echo $attributes['mask']['title']; ?>">
-        <img class="masked-image-<?php echo $attributes['mask']['title']; ?>" src="<?php echo esc_url( $attributes['image']['url'] ); ?>" alt="<?php echo esc_attr( $attributes['image']['alt'] ); ?>">
+        <img class="masked-image-<?php echo $attributes['mask']['title']; ?>" src="<?php echo esc_url( $attributes['image']['url'] ); ?>" alt="<?php echo esc_attr( $attributes['image']['alt'] ); ?>"<?php if(($attributes['lazy-loading']) == true){?>loading="lazy"<?php } ?>>
         <figcaption> <?php echo $attributes['image']['caption']; ?> </figcaption>
     </figure>
 <?php else: ?>

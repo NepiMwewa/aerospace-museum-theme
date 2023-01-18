@@ -51,11 +51,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   /*
    * Fonts
   */
-  --fontHeading: 'iceland';
-  --fontText: 'krub';
-  --fontWritten: 'PermanentMarker-Regular';
+  --fontHeading: 'iceland', sans-serif;
+  --fontText: 'krub', sans-serif;
+  --fontWritten: 'PermanentMarker-Regular', monospace;
 
-  --h1Size: 6rem;
+  --h1Size: 5.5rem;
   --h2Size: 3rem;
   --h3Size: 2rem;
   --h4Size: 2rem;
@@ -99,6 +99,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   font-family: iceland;
   src: url(fonts/Iceland-Regular.ttf);
   font-display: swap;
+  size-adjust: 120%;
 }
 @font-face {
   font-family: krub;
@@ -344,7 +345,7 @@ li{
   display: block;
 }
 .make-big{
-  font-size: var(--h1Size);
+  font-size: var(--h1Size) !important;
   letter-spacing: 1px;
 }
 
@@ -1525,6 +1526,7 @@ Responsive Design
 @media screen and (max-width: 1440px) {
   :root{
     --pageWidth: 1080px;
+    --h1Size: 5rem;
   }
 }
 @media screen and (max-width: 1180px) {
@@ -1722,18 +1724,20 @@ Responsive Design
   }
 }
 @media screen and (max-width: 570px) {
+  :root{
+    --h1Size: 4.5rem;
+  }
   .woocommerce div.product .woocommerce-tabs .panel{
     border-radius: 0px 0px var(--productImgRadius) var(--productImgRadius);
   }
 }
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 400px) {
   :root{
-    --h1Size: 5rem;
+    --h1Size: 3.6rem;
   }
 }
 @media screen and (max-width: 350px) {
   :root{
-    --h1Size: 4rem;
     --hoursTextSize: 1rem;
   }
   #footer-menu{
@@ -1746,9 +1750,9 @@ Responsive Design
     text-align: center;
   }
 }
-@media screen and (max-width: 283px) {
+@media screen and (max-width: 310px) {
   :root{
-    --h1Size: 3.7rem;
+    --h1Size: 3.2rem;
     --hoursTextSize: 0.9rem;
   }
 }
