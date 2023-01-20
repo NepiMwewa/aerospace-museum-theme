@@ -43,7 +43,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
   --cardBackground: #b05a2c;
-  --boarderColor: #E8E9F3;
+  --boarderColor: #c29780;
+  --linkBorderColor: #ddbcab;
 
   --boxShadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   --boxShadowLight: 4px 4px 4px rgba(219, 219, 219, 0.25);
@@ -182,29 +183,33 @@ li{
   display: block !important;
   position: fixed;
   top: 0;
-  background-color: var(--navPopupBackground);
+  background-color: var(--mainBackground);
   backdrop-filter: blur(6px);
   width: 100%;
-  height: 150%;
+  height: 100%;
   z-index: 11;
 }
 .menu-view #main-menu{
   display: flex;
   flex-direction: column;
-
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0px;
+  padding-top: 64px;
 }
 .menu-view #main-menu li{
-  margin: 1rem;
+  display: block;
+  width: 100%;
+  margin: 0px;
+  border-bottom: 1px solid var(--linkBorderColor);
+}
+.menu-view #main-menu li:first-child{
+  border-top: 1px solid var(--linkBorderColor);
 }
 .menu-view #main-menu a{
-  text-shadow:
-   -1px -1px 0 #000,  
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-     1px 1px 0 #000,
-     0px 2px 3px white;
+  display: block;
+  
+  padding: 1rem;
 }
 #hamburger-menu{
   display: none;
@@ -308,7 +313,10 @@ li{
 
   color: var(--mainColor);
   text-decoration: none;
-  margin-right: 15px;
+  padding-right: 15px;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 #main-menu a:hover{
   text-decoration: underline;
@@ -316,16 +324,22 @@ li{
 }
   /* drop menu */
 #main-menu > li {
-  display: inline-block;
+  display: block;
+  height: 100%;
+}
+#main-menu .current-menu-item a{
+  text-decoration: underline;
+  text-decoration-color: var(--mainAltColor);
 }
 #main-menu .sub-menu{
   display: none;
   position: absolute;
+  top: 64px;
   background-color: var(--navBackground);
   min-width: 160px;
   box-shadow: var(--boxShadow);
   backdrop-filter: blur(4px);
-  border-radius: 0px 0px 15px 15px;
+  border-radius: 0px 0px var(--productImgRadius) var(--productImgRadius);
   z-index: 3;
 }
 #main-menu .sub-menu li{
@@ -1540,10 +1554,11 @@ Responsive Design
 @media screen and (max-width: 1000px) {
   :root{
     --pageWidth: 800px;
-    --navLinkSize: 3rem;
+    --navLinkSize: 2.5rem;
     --footerBigLinkSize: 1.75rem;
     --footerSmallLinkSize: 1.25rem;
     --footerCopyrightSize: 1rem;
+    --frontPageTopMargin: 10px;
   }
   .reverse-column{
     -webkit-flex-direction: column-reverse;
@@ -1561,6 +1576,7 @@ Responsive Design
   }
   #hamburger-menu{
     display: block;
+    right: 8px;
   }
   .blur-background{
     display: none;
@@ -1592,8 +1608,18 @@ Responsive Design
   .header-content{
     height: 0%;
   }
+  #main-menu{
+    width: 100%;
+  }
+  #main-menu a{
+    padding-right: 15px;
+    height: auto;
+    display: inline-block;
+  }
   #main-menu > li {
     display: inline-block;
+    border-right-style: none;
+    height: auto;
   }
   #main-menu .sub-menu{
     display: none;
@@ -1668,7 +1694,7 @@ Responsive Design
 @media screen and (max-width: 781px) {
   :root{
     --pageWidth: auto;
-    --pageMargin: 5px 0px;
+    --pageMargin: 1rem 0px;
     --cardPadding: 8px;
   }
   #footer-menu{
@@ -1750,9 +1776,9 @@ Responsive Design
     text-align: center;
   }
 }
-@media screen and (max-width: 310px) {
+@media screen and (max-width: 328px) {
   :root{
-    --h1Size: 3.2rem;
+    --h1Size: 3rem;
     --hoursTextSize: 0.9rem;
   }
 }

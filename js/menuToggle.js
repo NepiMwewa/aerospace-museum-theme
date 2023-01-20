@@ -1,4 +1,4 @@
-var menuToggle = false, shopToggle = false;
+var menuToggle = false, shopToggle = false, isMobile = false;
  
 //toggle menu open or closed
 function toggleMenu(){
@@ -55,6 +55,22 @@ function escapeShoppingCart(event){
     }
 }
 
+window.addEventListener("resize", windowChangedSize);
+
+
+function windowChangedSize(){
+  if(window.innerWidth <= 1000){
+    isMobile = true;
+   
+  }else{
+    if(menuToggle){
+      toggleMenu();
+    }
+    isMobile = false;
+    
+  }
+}
+
 
 window.onload = init;
 
@@ -74,9 +90,17 @@ function init() {
   hamburgerMenu.addEventListener('keydown', (event) => escapeFromMenu(event));
   mainMenu.addEventListener('keydown', (event) => escapeFromMenu(event));
 
+  windowChangedSize();
+
+  let navLinks = document.getElementsByClassName("closeTab");
+  for (var i = 0; i < navLinks.length; i++) {
+    navLinks[i].addEventListener('click', addEventToLink, false);
+  }
+
   let shoppingCartMenu = document.getElementById("shopping-cart-menu");
   let shoppingId = document.getElementById("shopping-cart-id");
 
   shoppingCartMenu.addEventListener('keydown', (event) => escapeShoppingCart(event));
   shoppingId.addEventListener('keydown', (event) => escapeShoppingCart(event));
 }
+
